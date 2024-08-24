@@ -2,7 +2,7 @@ locals {
   tfstate_bucket_name = "${var.tfstate_bucket_name}_${var.project}"
 }
 
-resource "google_storage_bucket" "tfstate" {
+resource "google_storage_bucket" "tfstate_buckets" {
   project       = var.project
   name          = local.tfstate_bucket_name
   location      = var.region

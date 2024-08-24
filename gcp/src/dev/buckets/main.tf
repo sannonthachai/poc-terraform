@@ -4,9 +4,13 @@ terraform {
 
     workspaces {
       project = "GCP-Development"
-      name    = "Buckets"
+      name    = "DEV-Buckets"
     }
   }
+}
+
+locals {
+  list_ops_buckets = [for name in var.ops_bucket_name : "${name}_${module.variables.dev.project}"]
 }
 
 provider "google" {
@@ -29,8 +33,13 @@ module "tfstate_bucket" {
   team                = module.global_variables.team.ops
 }
 
-# module "bucket" {
-#   source  = "../modules/buckets"
-#   project = var.project
-#   env     = var.env
-# }
+module "ops_bucket" {
+  source       = "../../../modules/buckets"
+  for_each     = toset(local.list_ops_buckets)
+  bucket_name  = each.value
+  project      = module.variables.dev.project
+  env          = module.variables.dev.env
+  team         = module.global_variables.team.ops
+  region       = var.region
+  bucket_class = var.bucket_class
+}
