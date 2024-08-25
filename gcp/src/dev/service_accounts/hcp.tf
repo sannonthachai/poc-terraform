@@ -1,14 +1,6 @@
 locals {
   hcp_service_accounts = [
     {
-      account      = "hcp-buckets-user"
-      display_name = "HCP-Buckets-User"
-    },
-    {
-      account      = "hcp-service-account-creator"
-      display_name = "HCP-Service-Account-Creator"
-    },
-    {
       account      = "hcp-buckets-admin"
       display_name = "HCP-Buckets-Admin"
     },
