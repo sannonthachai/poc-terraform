@@ -9,3 +9,15 @@ resource "google_project_iam_member" "service_account_creator" {
   role    = "roles/iam.serviceAccountCreator"
   member  = "serviceAccount:${google_service_account.hcp["hcp-service-account-creator"].email}"
 }
+
+resource "google_project_iam_member" "object_admin" {
+  project = module.variables.dev.project
+  role    = "roles/storage.objectAdmin"
+  member  = "serviceAccount:${google_service_account.hcp["hcp-buckets-admin"].email}"
+}
+
+resource "google_project_iam_member" "service_account_admin" {
+  project = module.variables.dev.project
+  role    = "roles/iam.serviceAccountAdmin"
+  member  = "serviceAccount:${google_service_account.hcp["hcp-service-account-admin"].email}"
+}

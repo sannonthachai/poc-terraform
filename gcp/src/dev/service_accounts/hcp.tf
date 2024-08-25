@@ -7,7 +7,15 @@ locals {
     {
       account      = "hcp-service-account-creator"
       display_name = "HCP-Service-Account-Creator"
-    }
+    },
+    {
+      account      = "hcp-buckets-admin"
+      display_name = "HCP-Buckets-Admin"
+    },
+    {
+      account      = "hcp-service-account-admin"
+      display_name = "HCP-Service-Account-Admin"
+    },
   ]
 }
 
