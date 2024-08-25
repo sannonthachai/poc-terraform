@@ -21,5 +21,6 @@ variable "ops_bucket_name" {
     "ops-bucket-001",
     "ops-bucket-002",
     "ops-bucket-003",
+    "ops-bucket-004",
   ]
 }
