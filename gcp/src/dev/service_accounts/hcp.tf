@@ -8,6 +8,10 @@ locals {
       account      = "hcp-service-account-admin"
       display_name = "HCP-Service-Account-Admin"
     },
+    {
+      account      = "hcp-network-admin"
+      display_name = "HCP-Network-Admin"
+    },
   ]
 }
 
