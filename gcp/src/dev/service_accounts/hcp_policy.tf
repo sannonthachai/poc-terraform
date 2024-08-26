@@ -23,3 +23,13 @@ resource "google_project_iam_member" "network_admin" {
   role    = each.value
   member  = "serviceAccount:${google_service_account.hcp["hcp-network-admin"].email}"
 }
+
+resource "google_project_iam_member" "container_admin" {
+  for_each = toset([
+    "roles/container.admin",
+    "roles/iam.serviceAccountUser",
+  ])
+  project = module.variables.dev.project
+  role    = each.value
+  member  = "serviceAccount:${google_service_account.hcp["hcp-container-admin"].email}"
+}
