@@ -40,6 +40,6 @@ module "ops_bucket" {
   project      = module.variables.dev.project
   env          = module.variables.dev.env
   team         = module.global_variables.team.ops
-  region       = var.region
+  region       = module.variables.dev.region
   bucket_class = var.bucket_class
 }
