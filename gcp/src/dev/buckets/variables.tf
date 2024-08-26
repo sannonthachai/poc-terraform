@@ -4,11 +4,6 @@ variable "tfstate_bucket_name" {
   description = "Terraform bucket name"
   default     = "tfstate-bucket"
 }
-variable "region" {
-  type        = string
-  description = "GCP default region"
-  default     = "asia-southeast1"
-}
 variable "bucket_class" {
   type        = string
   description = "GCP default bucket class"
