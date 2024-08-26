@@ -15,7 +15,11 @@ resource "google_project_iam_member" "service_account_admin" {
 }
 
 resource "google_project_iam_member" "network_admin" {
+  for_each = toset([
+    "roles/compute.networkAdmin",
+    "roles/compute.securityAdmin",
+  ])
   project = module.variables.dev.project
-  role    = "roles/compute.networkAdmin"
+  role    = each.value
   member  = "serviceAccount:${google_service_account.hcp["hcp-network-admin"].email}"
 }
