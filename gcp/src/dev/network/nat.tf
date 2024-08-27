@@ -2,6 +2,7 @@ resource "google_compute_address" "global_ip" {
   name         = "gke-global-ip"
   address_type = "EXTERNAL"
   region       = module.variables.dev.region
+  address      = "192.168.1.10"
 }
 
 resource "null_resource" "wait_for_ip" {
